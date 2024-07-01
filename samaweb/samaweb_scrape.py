@@ -70,7 +70,7 @@ class SamaGradeChecker:
         print('logged in...')
 
     def check_unseen_messages(self):
-        logging.info('Checking for unseen messages...')
+        print('check unseen messages...')
         sleep(1)
         try:
             notification_button = self.driver.find_element(By.ID, 'notification-button')
@@ -90,7 +90,7 @@ class SamaGradeChecker:
             return False
 
     def go_to_all_messages_page(self):
-        logging.info('going to all messages page...')
+        print('going to all messages page...')
         is_unseen = self.check_unseen_messages()
 
         if is_unseen:
