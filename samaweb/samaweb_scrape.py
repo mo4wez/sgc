@@ -73,7 +73,9 @@ class SamaGradeChecker:
         print('check unseen messages...')
         sleep(1)
         try:
-            notification_button = self.driver.find_element(By.ID, 'notification-button')
+            notification_button = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.ID, 'notification-button'))
+            )
             unseen_count_element = notification_button.find_element(By.CSS_SELECTOR, '.unSeenMessageCount')
             unseen_count = unseen_count_element.text.strip()
             
