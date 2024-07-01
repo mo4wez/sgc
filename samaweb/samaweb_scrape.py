@@ -29,9 +29,9 @@ class SamaGradeChecker:
         # options.add_argument("--headless=new")  # run in headless mode (without gui)
         # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
         options = Options()
-        options.add_argument("--headless")  # Run in headless mode
-        options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
+        options.add_argument("--headless")  # Run in headless mode
+        # options.add_argument("--disable-gpu")
         options.add_argument("--disable-dev-shm-usage")
         
         driver_path = ChromeDriverManager().install()
