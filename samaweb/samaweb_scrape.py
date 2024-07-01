@@ -24,11 +24,20 @@ class SamaGradeChecker:
 
     def _setup_driver(self):
         logging.info('Setting up driver...')
-        options = Options()
-        options.add_argument(f"--no-proxy-server={self.config.login_url}")
-        options.add_argument("--headless=new")  # run in headless mode (without gui)
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
+        # options.add_argument(f"--no-proxy-server={self.config.login_url}")
+        # options.add_argument("--headless=new")  # run in headless mode (without gui)
+        # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+        options = Options()
+        options.add_argument("--headless")  # Run in headless mode
+        options.add_argument("--disable-gpu")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        
+        driver = webdriver.Chrome(
+            service=ChromeService(ChromeDriverManager(version='114.0.5735.90').install()),
+            options=options
+        )
         return driver
     
     def login(self):
