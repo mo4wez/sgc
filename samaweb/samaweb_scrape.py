@@ -34,10 +34,9 @@ class SamaGradeChecker:
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         
-        driver = webdriver.Chrome(
-            service=ChromeService(ChromeDriverManager(version='114.0.5735.90').install()),
-            options=options
-        )
+        driver_path = ChromeDriverManager().install()
+        driver = webdriver.Chrome(service=ChromeService(driver_path), options=options)
+        
         return driver
     
     def login(self):
