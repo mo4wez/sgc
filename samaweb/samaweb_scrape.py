@@ -36,6 +36,7 @@ class SamaGradeChecker:
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--log-level=3")
+        options.add_argument('--proxy-server=http://5.201.171.28:80')
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
         return driver
