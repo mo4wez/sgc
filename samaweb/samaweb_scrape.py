@@ -36,11 +36,11 @@ class SamaGradeChecker:
         
         driver_path = ChromeDriverManager().install()
         driver = webdriver.Chrome(service=ChromeService(driver_path), options=options)
-        
+
         return driver
     
     def login(self):
-        logging.info('login to samaweb...')
+        print('logging in...')
         
         try:
             self.driver.get(self.config.login_url)
@@ -66,6 +66,8 @@ class SamaGradeChecker:
             logging.error(f"WebDriver error: {e}")
         except Exception as e:
             logging.error(f"An error occurred: {e}")
+        
+        print('logged in...')
 
     def check_unseen_messages(self):
         logging.info('Checking for unseen messages...')
